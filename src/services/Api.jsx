@@ -1,4 +1,4 @@
-const CallToApi = () => {
+const callToApi = () => {
   return fetch(
     'https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json '
   )
@@ -17,4 +17,7 @@ const CallToApi = () => {
       });
     });
 };
-export default CallToApi;
+const CharactersApi = {
+  callToApi: callToApi,
+};
+export default CharactersApi;

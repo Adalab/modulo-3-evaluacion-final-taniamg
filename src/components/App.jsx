@@ -1,58 +1,77 @@
 import '../styles/main.scss';
 import { useEffect, useState } from 'react';
-import CallToApi from '../services/Api';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import api from '../services/Api';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CharacterList from './CharacterList';
+import CharacterDetail from './CharacterDetail';
 import Filters from './Filters';
 
 function App() {
-  const [characters, setCharacter] = useState([]);
+  const [character, setCharacter] = useState([]);
   const [filterName, setFilterName] = useState('');
   const [filterSpecies, setFilterSpecies] = useState('');
+  const routeCharacter = useRouteMatch('/character/:id');
 
-  //set order api list
-  characters.sort(function (a, b) {
-    if (a.name > b.name) {
-      return 1;
-    }
-    if (a.name < b.name) {
-      return -1;
-    }
-    return 0;
-  });
+  const characterId = routeCharacter !== null ? routeCharacter.params.id : '';
+  const clickCharacter = character.find(
+    (character) => character.id === parseInt(characterId)
+  );
 
   //call to api service
   useEffect(() => {
-    CallToApi().then((response) => {
+    api.callToApi().then((response) => {
       setCharacter(response);
     });
-  }, [characters]);
+  }, []);
 
-  const handleFilterName = (ev) => {
-    ev.preventDefault();
-    setFilterName(ev.currentTarget.value);
+  //declaration handle function
+
+  const handleFilterName = (value) => {
+    setFilterName(value);
   };
-  const handleFilterSpecies = (ev) => {
-    ev.preventDefault();
-    setFilterSpecies(ev.currentTarget.value);
+  const handleFilterSpecies = (value) => {
+    setFilterSpecies(value);
   };
 
-  /*const filterCharacters = characters.filter((character) =>
-    character.name.toLocalLowerCase().includes(filterName.toLocalLowercase())
+  //flter characters by name or species
+  const filterCharacters = character.filter((eachCharacter) =>
+    eachCharacter.name
+      .toLocalLowerCase()
+      .includes(filterName.toLocalLowercase())
+  );
+
+  /*character.filter((eachCharacter) =>
+    eachCharacter.species
+      .toLocalLowerCase()
+      .includes(filterSpecies.toLocalLowerCase())
   );*/
 
   return (
     <div className="main_container">
       <Header />
       <main>
-        <Filters
-          filterName={filterName}
-          filterSpecies={filterSpecies}
-          handleFilterName={handleFilterName}
-          handleFilterSpecies={handleFilterSpecies}
-        />
-        <CharacterList characters={characters} />
+        <Switch>
+          <Route exact path="/character/:id">
+            <section>
+              <CharacterDetail character={clickCharacter} />
+            </section>
+          </Route>
+          <Route exact path="/">
+            <section>
+              <Filters
+                filterName={filterName}
+                filterSpecies={filterSpecies}
+                handleFilterName={handleFilterName}
+                handleFilterSpecies={handleFilterSpecies}
+              />
+            </section>
+            <section>
+              <CharacterList character={filterCharacters} />
+            </section>
+          </Route>
+        </Switch>
       </main>
 
       <Footer className="footer" />

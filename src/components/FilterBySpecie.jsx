@@ -1,4 +1,8 @@
 const FilterBySpecies = (props) => {
+  const handleFilterSpecies = (ev) => {
+    ev.preventDefault();
+    props.handleFilterSpecies(ev.currentTarget.value);
+  };
   return (
     <>
       <label htmlFor="filterSpecies">¿Qué especie buscas?</label>
@@ -8,7 +12,7 @@ const FilterBySpecies = (props) => {
         type="text"
         id="species"
         name="species"
-        onChange={props.handleFilterSpecies}
+        onChange={handleFilterSpecies}
         value={props.filterSpecies}
       />
     </>
