@@ -1,0 +1,10 @@
+.character_list {
+  display: flex;
+  flex-direction: row;
+}
+
+.character_list-elements {
+  width: 200px;
+  height: 200px;
+  text-decoration: none;
+}
