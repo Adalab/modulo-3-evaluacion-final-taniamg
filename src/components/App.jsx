@@ -39,9 +39,9 @@ function App() {
 
   //flter characters by name or species
   const filterCharacters = character
-    /*.filter((each) =>
-      each.name.toLocalLowerCase().includes(filterName.toLocalLowercase())
-    )*/
+    .filter((each) =>
+      each.name.toLocaleLowerCase().includes(filterName.toLocaleLowerCase())
+    )
 
     .filter(
       (eachCharacter) =>
@@ -52,25 +52,25 @@ function App() {
     <div className="main_container">
       <Header />
       <main>
-        <section>
-          <Filters
-            filterName={filterName}
-            filterSpecies={filterSpecies}
-            handleFilterName={handleFilterName}
-            handleFilterSpecies={handleFilterSpecies}
-          />
-        </section>
-        <section>
-          <CharacterList character={filterCharacters} />
-        </section>
-
         <Switch>
           <Route path="/character/:id">
             <section>
               <CharacterDetail character={clickCharacter} />
             </section>
           </Route>
-          <Route exact path="/"></Route>
+          <Route exact path="/">
+            <section>
+              <Filters
+                filterName={filterName}
+                filterSpecies={filterSpecies}
+                handleFilterName={handleFilterName}
+                handleFilterSpecies={handleFilterSpecies}
+              />
+            </section>
+            <section>
+              <CharacterList character={filterCharacters} />
+            </section>
+          </Route>
           <Route>
             <setion>
               <p>Ningún personaje en este universo!!</p>

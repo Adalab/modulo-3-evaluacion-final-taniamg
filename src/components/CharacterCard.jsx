@@ -5,7 +5,7 @@ function CharacterCard(props) {
   return (
     <Link
       className="character_card-link"
-      to={`./character/${props.character.id}`}
+      to={`/character/${props.character.id}`}
     >
       <img
         className="character_card-img"
