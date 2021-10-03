@@ -4,10 +4,10 @@ const CharacterDetail = (props) => {
   if (props.character === undefined) {
     return (
       <ModalWindow>
-        <p>
+        <h2>
           Debes volver a el univero de Rick & Morty para encontrar un personaje
           valido
-        </p>
+        </h2>
       </ModalWindow>
     );
   } else {

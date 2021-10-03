@@ -11,7 +11,7 @@ const CharacterList = (props) => {
   return (
     <>
       <h2 className="character_list-title">Listado de Personajes</h2>
-      <section className="">
+      <section className="character_container">
         <ul className=" character_list-elements character_list-elements_container ">
           {characterElements}
         </ul>

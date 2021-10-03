@@ -1,3 +1,12 @@
+.character_container {
+  @media all and (min-width: 768px) {
+    padding: 30px;
+  }
+  @media all and(min-width:1200px) {
+    padding-right: 80px;
+  }
+}
+
 .character_list-elements_container {
   display: flex;
   flex-direction: column;
