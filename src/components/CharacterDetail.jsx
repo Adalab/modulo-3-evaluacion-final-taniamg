@@ -1,10 +1,14 @@
 import '../styles/modalMask.scss';
+import { Link } from 'react-router-dom';
 
-const CharacterDetail = (props) => {
+function CharacterDetail(props) {
   return (
     <>
       <div className="modalMask">
         <div className="modalMask_box rotate">
+          <Link to="/">
+            <span className="modal_close">x</span>
+          </Link>
           <section>
             <img
               src={props.character.image}
@@ -35,6 +39,6 @@ const CharacterDetail = (props) => {
       </div>
     </>
   );
-};
+}
 
 export default CharacterDetail;

@@ -11,65 +11,70 @@ import Filters from './Filters';
 function App() {
   const [character, setCharacter] = useState([]);
   const [filterName, setFilterName] = useState('');
-  const [filterSpecies, setFilterSpecies] = useState('');
+  const [filterSpecies, setFilterSpecies] = useState('all');
   const routeCharacter = useRouteMatch('/character/:id');
 
   const characterId = routeCharacter !== null ? routeCharacter.params.id : '';
   const clickCharacter = character.find(
     (character) => character.id === parseInt(characterId)
   );
+  console.log(clickCharacter);
 
   //call to api service
   useEffect(() => {
     api.callToApi().then((initialData) => {
+      console.log(initialData);
       setCharacter(initialData);
     });
   }, []);
 
   //declaration handle function
 
-  const handleFilterName = (value) => {
-    setFilterName(value);
+  const handleFilterName = (ev) => {
+    setFilterName(ev.currentTarget.value);
   };
-  const handleFilterSpecies = (value) => {
-    setFilterSpecies(value);
+  const handleFilterSpecies = (ev) => {
+    setFilterSpecies(ev.currentTarget.value);
   };
 
   //flter characters by name or species
-  /* const filterCharacters = character.filter((eachCharacter) =>
-    eachCharacter.name
-      .toLocalLowerCase()
-      .includes(filterName.toLocalLowercase())
-  );*/
+  const filterCharacters = character
+    /*.filter((each) =>
+      each.name.toLocalLowerCase().includes(filterName.toLocalLowercase())
+    )*/
 
-  /*character.filter((eachCharacter) =>
-    eachCharacter.species
-      .toLocalLowerCase()
-      .includes(filterSpecies.toLocalLowerCase())
-  );*/
+    .filter(
+      (eachCharacter) =>
+        filterSpecies === 'all' || eachCharacter.species === filterSpecies
+    );
 
   return (
     <div className="main_container">
       <Header />
       <main>
+        <section>
+          <Filters
+            filterName={filterName}
+            filterSpecies={filterSpecies}
+            handleFilterName={handleFilterName}
+            handleFilterSpecies={handleFilterSpecies}
+          />
+        </section>
+        <section>
+          <CharacterList character={filterCharacters} />
+        </section>
+
         <Switch>
-          <Route exact path="/character/:id">
+          <Route path="/character/:id">
             <section>
               <CharacterDetail character={clickCharacter} />
             </section>
           </Route>
-          <Route exact path="/">
-            <section>
-              <Filters
-                filterName={filterName}
-                filterSpecies={filterSpecies}
-                handleFilterName={handleFilterName}
-                handleFilterSpecies={handleFilterSpecies}
-              />
-            </section>
-            <section>
-              <CharacterList character={character} />
-            </section>
+          <Route exact path="/"></Route>
+          <Route>
+            <setion>
+              <p>Ningún personaje en este universo!!</p>
+            </setion>
           </Route>
         </Switch>
       </main>

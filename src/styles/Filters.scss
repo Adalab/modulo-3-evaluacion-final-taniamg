@@ -26,6 +26,9 @@
   width: 400px;
   border-radius: 5px;
   background-color: chartreuse;
+  &-option {
+    color: chartreuse;
+  }
 }
 @media all and (max-width: 768px) {
   .filters_form {
