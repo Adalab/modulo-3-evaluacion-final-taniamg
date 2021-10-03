@@ -12,9 +12,9 @@ function CharacterCard(props) {
         src={props.character.image}
         alt={props.character.name}
       />
-      <p>{props.character.name}</p>
-      <p>{props.character.species}</p>
-      <p> {props.character.status}</p>
+      <p className="character_detail">{props.character.name}</p>
+      <p className="character_detail">{props.character.species}</p>
+      <p className="character_detail"> {props.character.status}</p>
     </Link>
   );
 }

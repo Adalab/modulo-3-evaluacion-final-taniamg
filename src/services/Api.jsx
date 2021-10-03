@@ -1,10 +1,10 @@
-const callToApi = () => {
+function callToApi() {
   return fetch(
     'https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json '
   )
     .then((response) => response.json())
-    .then((response) => {
-      return response.results.map((character) => {
+    .then((json) => {
+      return json.results.map((character) => {
         return {
           image: character.image,
           name: character.name,
@@ -16,7 +16,7 @@ const callToApi = () => {
         };
       });
     });
-};
+}
 const CharactersApi = {
   callToApi: callToApi,
 };

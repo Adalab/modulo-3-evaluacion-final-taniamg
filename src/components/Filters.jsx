@@ -1,17 +1,18 @@
 import FilterByName from './FilterByName';
-import FilterByspecies from './FilterBySpecie';
+import FilterBySpecie from './FilterBySpecie';
+import '../styles/Filters.scss';
 
 const Filters = (props) => {
   return (
     <div>
-      <form>
+      <form className="filters_form">
         <FilterByName
           filterName={props.filterName}
-          handleFilters={props.handleFilterName}
+          handleFilterName={props.handleFilterName}
         />
-        <FilterByspecies
+        <FilterBySpecie
           filterSpecies={props.filterSpecies}
-          handleFilters={props.handleFilterSpecies}
+          handleFilterSpecies={props.handleFilterSpecies}
         />
       </form>
     </div>

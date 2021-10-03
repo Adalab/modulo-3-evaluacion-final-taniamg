@@ -13,20 +13,20 @@ const CharacterDetail = (props) => {
               className=""
             />
 
-            <p className="">
+            <p className="character_detail">
               👤
               {props.character.name}
             </p>
-            <p className="">
+            <p className="character_detail">
               👽
               {props.character.species}
             </p>
-            <p className="">
+            <p className="character_detail">
               💀
               {props.character.status}
             </p>
-            <p className="">🌌{props.character.origin.name}</p>
-            <p className="">
+            <p className="character_detail">🌌{props.character.origin.name}</p>
+            <p className="character_detail">
               📼
               {props.character.episode}
             </p>

@@ -1,10 +1,42 @@
-.character_list {
+.character_list-elements_container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+
+  @media all and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 15px;
+  }
+  @media all and (min-width: 1200px) {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
 }
 
 .character_list-elements {
-  width: 200px;
-  height: 200px;
   text-decoration: none;
+}
+.character_list-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 50px;
+  margin-top: 50px;
+  color: gold;
+}
+.character_detail {
+  color: greenyellow;
+  size: 15px;
+}
+.character_card-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.character_card-img {
+  border-radius: 15px;
 }

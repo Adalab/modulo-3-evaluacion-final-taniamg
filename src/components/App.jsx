@@ -21,8 +21,8 @@ function App() {
 
   //call to api service
   useEffect(() => {
-    api.callToApi().then((response) => {
-      setCharacter(response);
+    api.callToApi().then((initialData) => {
+      setCharacter(initialData);
     });
   }, []);
 
@@ -36,11 +36,11 @@ function App() {
   };
 
   //flter characters by name or species
-  const filterCharacters = character.filter((eachCharacter) =>
+  /* const filterCharacters = character.filter((eachCharacter) =>
     eachCharacter.name
       .toLocalLowerCase()
       .includes(filterName.toLocalLowercase())
-  );
+  );*/
 
   /*character.filter((eachCharacter) =>
     eachCharacter.species
@@ -68,7 +68,7 @@ function App() {
               />
             </section>
             <section>
-              <CharacterList character={filterCharacters} />
+              <CharacterList character={character} />
             </section>
           </Route>
         </Switch>

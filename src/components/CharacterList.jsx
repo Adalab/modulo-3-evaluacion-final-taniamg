@@ -10,9 +10,11 @@ const CharacterList = (props) => {
 
   return (
     <>
-      <section className="character_list">
-        <h2>Listado de Personajes</h2>
-        <ul className="character_list-elements">{characterElements}</ul>
+      <h2 className="character_list-title">Listado de Personajes</h2>
+      <section className="">
+        <ul className=" character_list-elements character_list-elements_container ">
+          {characterElements}
+        </ul>
       </section>
     </>
   );
