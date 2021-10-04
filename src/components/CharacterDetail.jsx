@@ -17,7 +17,7 @@ const CharacterDetail = (props) => {
           src={props.character.image}
           alt="character img"
           title="image"
-          className=""
+          className="detail_img"
         />
 
         <p className="character_detail">

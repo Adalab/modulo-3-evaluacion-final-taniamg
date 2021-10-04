@@ -12,7 +12,7 @@ const ModalWindow = (props) => {
               </span>
             </Link>
           </header>
-          <section>{props.children}</section>
+          <section className="modal_detail">{props.children}</section>
         </div>
       </div>
     </div>

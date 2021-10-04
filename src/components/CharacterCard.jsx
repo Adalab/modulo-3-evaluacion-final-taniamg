@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../styles/CharacterCard.scss';
+import '../styles/characterList.scss';
 
 function CharacterCard(props) {
   return (
