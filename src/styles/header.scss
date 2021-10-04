@@ -4,14 +4,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  &_img {
-    transform: scale(60%);
-    @media all and(min-width: 768px) {
-      transform: scale(100%);
-    }
+}
+.header_img {
+  transform: scale(60%);
+  @media all and(min-width: 768px) {
+    transform: scale(100%);
   }
 }
-
 .pop_up {
   animation-duration: 3s;
   animation-name: translation;
