@@ -4,7 +4,7 @@ import ButtonNoExist from './ButtonNoExist';
 const CharacterNoExist = (props) => {
   return (
     <div className="notFound">
-      <h1>Try again, this character does not exist!</h1>
+      <h1>Prueba de nuevo, ese personaje no pertenece a este universo!</h1>
 
       <ButtonNoExist
         className="notFound__button"
