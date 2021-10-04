@@ -1,7 +1,7 @@
 @import './core/reset.scss';
-@import './container.scss';
-@import './header.scss';
-@import './footer.scss';
-@import './characterList.scss';
-@import './modalMask.scss';
-@import './Filters.scss';
+@import './layout/characterList.scss';
+@import './layout/noExist.scss';
+@import './layout/Filters.scss';
+@import './layout/footer.scss';
+@import './layout/header.scss';
+@import './layout/modalMask.scss';

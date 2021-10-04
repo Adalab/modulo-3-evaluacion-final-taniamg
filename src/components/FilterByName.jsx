@@ -1,4 +1,4 @@
-import '../styles/Filters.scss';
+import '../styles/layout/Filters.scss';
 
 const FilterByName = (props) => {
   return (

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../styles/modalMask.scss';
+import '../styles/layout/modalMask.scss';
 const ModalWindow = (props) => {
   return (
     <div className="main_window">

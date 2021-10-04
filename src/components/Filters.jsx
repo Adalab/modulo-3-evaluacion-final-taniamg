@@ -1,7 +1,7 @@
 import FilterByName from './FilterByName';
 import FilterBySpecie from './FilterBySpecie';
 import FilterByGender from './FilterByGender';
-import '../styles/Filters.scss';
+import '../styles/layout/Filters.scss';
 
 const Filters = (props) => {
   return (

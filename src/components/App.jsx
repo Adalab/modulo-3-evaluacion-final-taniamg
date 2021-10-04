@@ -39,9 +39,19 @@ function App() {
   const handleFilterGender = (ev) => {
     setFilterGender(ev.currentTarget.value);
   };
+  const handleResetName = () => {
+    setFilterName('');
+  };
 
   //flter characters by name or species
   const filterCharacters = character
+    .sort(function (a, b) {
+      if (a.name > b.name) {
+        return 1;
+      } else {
+        return -1;
+      }
+    })
     .filter((each) =>
       each.name.toLocaleLowerCase().includes(filterName.toLocaleLowerCase())
     )
@@ -77,7 +87,10 @@ function App() {
               />
             </section>
             <section>
-              <CharacterList character={filterCharacters} />
+              <CharacterList
+                character={filterCharacters}
+                handleResetName={handleResetName}
+              />
             </section>
           </Route>
           <Route>
