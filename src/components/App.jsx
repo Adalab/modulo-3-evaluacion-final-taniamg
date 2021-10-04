@@ -12,13 +12,13 @@ function App() {
   const [character, setCharacter] = useState([]);
   const [filterName, setFilterName] = useState('');
   const [filterSpecies, setFilterSpecies] = useState('all');
+  const [filterGender, setFilterGender] = useState('all');
   const routeCharacter = useRouteMatch('/character/:id');
 
   const characterId = routeCharacter !== null ? routeCharacter.params.id : '';
   const clickCharacter = character.find(
     (character) => character.id === parseInt(characterId)
   );
-  console.log(clickCharacter);
 
   //call to api service
   useEffect(() => {
@@ -36,6 +36,9 @@ function App() {
   const handleFilterSpecies = (ev) => {
     setFilterSpecies(ev.currentTarget.value);
   };
+  const handleFilterGender = (ev) => {
+    setFilterGender(ev.currentTarget.value);
+  };
 
   //flter characters by name or species
   const filterCharacters = character
@@ -46,6 +49,10 @@ function App() {
     .filter(
       (eachCharacter) =>
         filterSpecies === 'all' || eachCharacter.species === filterSpecies
+    )
+    .filter(
+      (eachCharacter) =>
+        filterGender === 'all' || eachCharacter.gender === filterGender
     );
 
   return (
@@ -63,8 +70,10 @@ function App() {
               <Filters
                 filterName={filterName}
                 filterSpecies={filterSpecies}
+                filterGender={filterGender}
                 handleFilterName={handleFilterName}
                 handleFilterSpecies={handleFilterSpecies}
+                handleFilterGender={handleFilterGender}
               />
             </section>
             <section>

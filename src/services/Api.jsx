@@ -1,6 +1,6 @@
 function callToApi() {
   return fetch(
-    'https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json '
+    'https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json'
   )
     .then((response) => response.json())
     .then((json) => {
@@ -13,6 +13,8 @@ function callToApi() {
           episode: character.episode,
           status: character.status,
           id: character.id,
+          url: character.url,
+          gender: character.gender,
         };
       });
     });
