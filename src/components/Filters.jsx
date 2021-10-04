@@ -16,8 +16,8 @@ const Filters = (props) => {
           handleFilterSpecies={props.handleFilterSpecies}
         />
         <FilterByGender
-          filterSpecies={props.filterGender}
-          handleFilterSpecies={props.handleFilterGender}
+          filterGender={props.filterGender}
+          handleFilterGender={props.handleFilterGender}
         />
       </form>
     </div>
