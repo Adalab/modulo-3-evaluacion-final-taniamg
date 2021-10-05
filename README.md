@@ -11,6 +11,7 @@ This project was bootstrapped with [Adalab React Starter Kit](https://adalab.es/
 ## Structure
 ___
 I´ve created an easy structure to facilitate its readability, understanding and possible future changes.
+```
  src
  ├── components
  |  ├── App.jsx
@@ -26,14 +27,15 @@ I´ve created an easy structure to facilitate its readability, understanding and
  ├── styles
  |
  ├── index.js
+ ```
 
--Components:
-- App: where it is the foundations
-- Filters: FilterName-FilterSpecie: structure with the filters
-- CharacterList: CaracterCard: paint the data
-- CharacterDetail: to router react
-- Services:
- Api: make a petition to api and fetch
+- Components:
+  - App: where it is the foundations
+  - Filters: FilterName-FilterSpecie: structure with the filters
+  - CharacterList: CaracterCard: paint the data
+  - CharacterDetail: to router react
+  - Services:
+       Api: make a petition to api and fetch
 
 
 
